@@ -12,12 +12,12 @@ import NoteSate from './context/notes/NoteState';
 function App() {
   return (
     <>
-      <NoteSate></NoteSate>
+      <NoteSate>
         <Router>
           <Nevbar />
           <Switch>
             <Route excat path="/">
-           
+
               <Home />
             </Route>
             <Route excat path="/About">
@@ -25,7 +25,7 @@ function App() {
             </Route>
           </Switch>
         </Router>
-      
+      </NoteSate>
     </>
   );
 }

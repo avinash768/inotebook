@@ -1,13 +1,16 @@
 import NoteContext from "./noteContext";
 
-const NoteSate = (props)=>{
- 
+const NoteState = (props)=>{
+    const state= {
+        "Name":"hari",
+        "Class":"Ab"
+    }
     return(
-        <NoteContext.Provider value={{}}> 
+        <NoteContext.Provider value={{state}}> 
             {props.children}
         </NoteContext.Provider>
     )
 }
 
 
-export default NoteSate;
+export default NoteState;
