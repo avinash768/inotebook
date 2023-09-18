@@ -4,10 +4,11 @@ import Nevbar from './components/Nevbar';
 import About from './components/About';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route
+  Route,
+  Routes
 } from "react-router-dom";
 import NoteSate from './context/notes/NoteState';
+import Alert from './components/Alert';
 
 function App() {
   return (
@@ -15,18 +16,17 @@ function App() {
       <NoteSate>
         <Router>
           <Nevbar />
-          <Switch>
-            <Route excat path="/">
-
-              <Home />
-            </Route>
-            <Route excat path="/About">
-              <About />
-            </Route>
-          </Switch>
+          <Alert message="this is ok"/>
+          <div className="container">
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+          </Routes>
+          </div>
         </Router>
       </NoteSate>
     </>
+
   );
 }
 
