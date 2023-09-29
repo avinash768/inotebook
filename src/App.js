@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import NoteSate from './context/notes/NoteState';
 import Alert from './components/Alert';
+import Login from './components/Login';
+import Singup from './components/Singup';
 
 function App() {
   return (
@@ -20,9 +22,12 @@ function App() {
           <div className="container">
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
+            <Route path='/about' element={<About />} />         
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/singup' element={<Singup />} />
           </Routes>
           </div>
+          
         </Router>
       </NoteSate>
     </>

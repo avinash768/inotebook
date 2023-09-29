@@ -31,19 +31,8 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({title, description ,tag})
     });
-    const json = await response.json();
-    console.log(json);
-    console.log("add new note");
-    const note = {
-      "_id": "652062dd248c4b456a16ce2a",
-      "user": "64fe988941fb4a4dc80154ba",
-      "title": title,
-      "description": description,
-      "tag": tag,
-      "Date": "2023-09-17T11:28:29.202Z",
-      "__v": 0
-    }
-    setNotes(notes.concat(note));
+    const note = await response.json();
+    setNotes(notes.concat(note));    
   }
 
   //delete notes
