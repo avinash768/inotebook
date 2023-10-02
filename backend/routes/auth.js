@@ -57,7 +57,6 @@ router.post('/createuser', [
         // console.log(jwtData);
 
         success=true;
-
         res.json({success, authtoken });
 
         //catch errors
@@ -79,14 +78,14 @@ router.post('/login', [
     // any error accuared send bad request
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({success, errors: errors.array() });
     }
     const { email, password } = req.body;
     try {
         success = false;
         let user = await User.findOne({ email });
         if (!user) {
-            return res.status(400).json({ error: "please try to login with correct credentions" });
+            return res.status(400).json({ success, error: "please try to login with correct credentions" });
         }
 
         const passwordCompare = await bcrypt.compare(password, user.password);
