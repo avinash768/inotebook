@@ -32,7 +32,8 @@ const Login = (props) => {
         setcreadentials({ ...creadentials, [e.target.name]: e.target.value })
     }
     return (
-        <div className='contenar'>
+        <div className='contenar mt-3'>
+            <h2>Login </h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>

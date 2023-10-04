@@ -29,7 +29,8 @@ const Singup = (props) => {
         setcreadentials({ ...creadentials, [e.target.name]: e.target.value })
     }
     return (
-        <div>
+        <div className="mt-3">
+            <h2>Create new user account</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Name</label>

@@ -2,10 +2,16 @@ import React, { useEffect } from 'react';
 import {
     Link ,useLocation
 } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Nevbar = () => {
+    let navigate = useNavigate();
+    const handleLogout = ()=>{
+        localStorage.removeItem('token');
+        navigate("/login");
+    }
     let location = useLocation();
     useEffect(() => {
         console.log(location.pathname);
@@ -26,11 +32,11 @@ const Nevbar = () => {
                             <Link className={`nav-link ${location.pathname==='/about'? "active": ""}`} to="/about">About</Link>
                         </li>
                     </ul>
-                    <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    {!localStorage.getItem('token')?<form className="d-flex" role="search">
+                        {/* <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" /> */}
                         <Link className="btn btn-primary  mx-2" to="/login" href="#" role="button">Login</Link>
-                        <Link className="btn btn-primary  mx-2" to="/singup" href="#" role="button">Singup</Link>
-                    </form>
+                        <Link className="btn btn-primary  mx-2" to="/singup" href="#" role="button">Sing up</Link>
+                    </form>: <button onClick={handleLogout} className="btn btn-primary">Logout</button>}
                 </div>
             </div>
         </nav>
