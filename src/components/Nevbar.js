@@ -3,6 +3,7 @@ import {
     Link ,useLocation
 } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import User from './User';
 
 
 
@@ -32,6 +33,7 @@ const Nevbar = () => {
                             <Link className={`nav-link ${location.pathname==='/about'? "active": ""}`} to="/about">About</Link>
                         </li>
                     </ul>
+                    <User/>
                     {!localStorage.getItem('token')?<form className="d-flex" role="search">
                         {/* <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" /> */}
                         <Link className="btn btn-primary  mx-2" to="/login" href="#" role="button">Login</Link>
